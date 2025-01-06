@@ -1,0 +1,45 @@
+<template>
+    <template if:true={showModal}>
+        <!-- Greyed-Out Background -->
+        <div class="backdrop"></div>
+
+        <!-- Modal Popup -->
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Enter Referral Code</h2>
+                <lightning-button-icon 
+                    icon-name="utility:close" 
+                    alternative-text="Close" 
+                    onclick={closeModal} 
+                    variant="bare-inverse" 
+                    class="close-button">
+                </lightning-button-icon>
+            </div>
+            <div class="modal-body">
+                <lightning-input 
+                    label="Referral Code" 
+                    value={referralCode} 
+                    onchange={handleInputChange} 
+                    required>
+                </lightning-input>
+
+                <!-- Message Display -->
+                <template if:true={message}>
+                        {message}
+                </template>
+            </div>
+            <div class="modal-footer">
+                <lightning-button 
+                    label="Submit" 
+                    variant="brand" 
+                    onclick={handleSubmit}>
+                </lightning-button>
+                <lightning-button 
+                    label="Cancel" 
+                    variant="neutral" 
+                    onclick={closeModal}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+</template>

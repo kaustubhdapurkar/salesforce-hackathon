@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <description>Add points on successful referral.</description>
+        <name>ReferralPointsToAccrue</name>
+        <dataType>Number</dataType>
+        <expression>VALUE({!$Label.Accrual_Points_For_Referral})</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Addition of Referral Points {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Addition of Referral Points</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create a point ledger record for successful referral.</description>
+        <name>Create_Point_Ledger_Record</name>
+        <label>Create Point Ledger Record</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Loyalty_Profile__c</field>
+            <value>
+                <elementReference>$Record.Referrer__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Source__c</field>
+            <value>
+                <stringValue>Referral</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Total_Points__c</field>
+            <value>
+                <elementReference>ReferralPointsToAccrue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Transaction_Type__c</field>
+            <value>
+                <stringValue>Accrual</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Point_Ledger__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Point_Ledger_Record</targetReference>
+        </connector>
+        <object>Referral__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

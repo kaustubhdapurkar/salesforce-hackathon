@@ -1,0 +1,19 @@
+<template>
+    <lightning-vertical-navigation
+        selected-item={selectedItem}
+        aria-labelledby="vertical-navigation-label">
+        <template if:true={productFamilies}>
+            <template for:each={productFamilies} for:item="family">
+                <lightning-vertical-navigation-item
+                    key={family.value}
+                    label={family.label}
+                    name={family.value}
+                    onclick={handleSelection}>
+                </lightning-vertical-navigation-item>
+            </template>
+        </template>
+        <template if:false={productFamilies}>
+            <p>No product families available</p>
+        </template>
+    </lightning-vertical-navigation>
+</template>

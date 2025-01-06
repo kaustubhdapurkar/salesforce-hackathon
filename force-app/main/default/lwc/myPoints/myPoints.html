@@ -1,0 +1,8 @@
+<template>
+    <div class="points-container">
+        <p class="points-text">You have <span class="points-value">{rewardPoints}</span> total points!</p>
+        <template if:true={expiringPoints}>
+            <p class="points-text"><span class="points-value">{expiringPoints}</span> Points expiring on <span class="expiry-date">{expiryDate}</span></p>
+        </template>
+    </div>
+</template>

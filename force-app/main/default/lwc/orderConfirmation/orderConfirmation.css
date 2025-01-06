@@ -1,0 +1,49 @@
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.confirmation-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmation-header {
+    margin-bottom: 20px;
+}
+
+.confirmation-header lightning-icon {
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+.confirmation-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.confirmation-body {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.confirmation-body p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.confirmation-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

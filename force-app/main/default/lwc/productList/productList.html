@@ -1,0 +1,30 @@
+<template>
+    <template if:true={products}>
+        <div class="slds-grid slds-wrap">
+            <template for:each={products} for:item="product">
+                <div key={product.Id} class="slds-col slds-size_1-of-3 slds-p-around_small">
+                    <lightning-card title={product.Name} class="product-card">
+                        <div class="slds-grid slds-wrap slds-align_absolute-center">
+                            <img src={product.DisplayUrl} alt={product.Name} class="product-image" />
+                        </div>
+                        <div class="slds-p-around_medium">
+                            <p><strong>Price:</strong> {product.price}</p>
+                            <p class="product-description"><strong>Description:</strong> {product.Description}</p>
+                        </div>
+                        <div class="slds-p-around_medium">
+                            <lightning-button
+                                label="Buy Now"
+                                variant="brand"
+                                onclick={handleBuyNow}
+                                data-id={product.Id}>
+                            </lightning-button>
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:false={products}>
+        <p>No Products Available</p>
+    </template>
+</template>

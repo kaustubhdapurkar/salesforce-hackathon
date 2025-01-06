@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>Inserts accrual point ledger records when a user submits a review.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Point to accrue for a review.</description>
+        <name>PointsToAccrue</name>
+        <dataType>Number</dataType>
+        <expression>VALUE({!$Label.Accrual_Points_For_Review})</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Create Point Ledger Record When A Review Is Created {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Point Ledger Record When A Review Is Created</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create an accrual point ledger record for review creation.</description>
+        <name>Create_Point_Ledger_Record</name>
+        <label>Create Point Ledger Record</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Loyalty_Profile__c</field>
+            <value>
+                <elementReference>$Record.Loyalty_Profile__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Source__c</field>
+            <value>
+                <stringValue>Review</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Total_Points__c</field>
+            <value>
+                <elementReference>PointsToAccrue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Transaction_Type__c</field>
+            <value>
+                <stringValue>Accrual</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Point_Ledger__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Point_Ledger_Record</targetReference>
+        </connector>
+        <object>Customer_Review__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

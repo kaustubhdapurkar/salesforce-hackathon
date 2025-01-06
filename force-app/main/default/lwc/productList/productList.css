@@ -1,0 +1,27 @@
+/* Styling for the product image */
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Truncate description to 3 lines */
+.product-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Show only 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.5em; /* Adjust based on line height */
+    line-height: 1.5em; /* Line height for readability */
+}
+
+/* Ensure card height remains consistent */
+.product-card {
+    min-height: 350px; /* Adjust this value to set card height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

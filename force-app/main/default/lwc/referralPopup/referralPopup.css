@@ -1,0 +1,59 @@
+/* Greyed-Out Background */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker semi-transparent grey */
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+/* Modal Popup */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1001; /* Ensures it appears above the backdrop */
+    width: 450px;
+    max-width: 90%;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #999;
+}
+
+/* Modal Body */
+.modal-body {
+    margin-bottom: 20px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

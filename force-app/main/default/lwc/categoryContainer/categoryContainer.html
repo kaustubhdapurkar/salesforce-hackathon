@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-4">
+            <c-product-navigation
+                onfamilyselect={handleFamilySelection}>
+            </c-product-navigation>
+        </div>
+        <div class="slds-col slds-size_3-of-4">
+            <c-product-list selected-family={selectedFamily}></c-product-list>
+        </div>
+    </div>
+</template>

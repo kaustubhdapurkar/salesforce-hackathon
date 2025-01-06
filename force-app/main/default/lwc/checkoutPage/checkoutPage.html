@@ -1,0 +1,69 @@
+<template>
+    <div class="checkout-container">
+        <!-- Product Information Section -->
+        <div class="product-info">
+            <img src={product.DisplayUrl} alt={product.Name} class="product-image" />
+            <div class="product-details">
+                <h2>{product.Name}</h2>
+                <p>{product.Description}</p>
+                <p><strong>Price:</strong> ${finalPrice}</p>
+            </div>
+        </div>
+
+        <!-- Voucher Code Section -->
+        <div class="voucher-section">
+            <lightning-input
+                label="Enter Voucher Code"
+                value={voucherCode}
+                onchange={handleVoucherChange}>
+            </lightning-input>
+            <lightning-button
+                label="Apply Voucher"
+                variant="brand"
+                onclick={applyVoucher}>
+            </lightning-button>
+            <template if:true={voucherMessage}>
+                <p>{voucherMessage}</p>
+            </template>
+        </div>
+
+        <!-- Loyalty Points Section -->
+        <div class="loyalty-section">
+            <p><strong>Your Loyalty Points:</strong> {loyaltyPoints}</p>
+            <lightning-input
+                label="Points to Redeem"
+                type="number"
+                min="0"
+                max={loyaltyPoints}
+                value={pointsToRedeem}
+                onchange={handlePointsChange}>
+            </lightning-input>
+            <lightning-button
+                label="Redeem Points"
+                variant="brand"
+                onclick={redeemPoints}>
+            </lightning-button>
+            <template if:true={pointsMessage}>
+                <p>{pointsMessage}</p>
+            </template>
+        </div>
+
+        <!-- Delivery Address Section -->
+        <div class="address-section">
+            <lightning-input
+                label="Delivery Address"
+                value={deliveryAddress}
+                onchange={handleAddressChange}>
+            </lightning-input>
+        </div>
+
+        <!-- Checkout Button -->
+        <div class="checkout-button">
+            <lightning-button
+                label="Checkout"
+                variant="success"
+                onclick={createOrder}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

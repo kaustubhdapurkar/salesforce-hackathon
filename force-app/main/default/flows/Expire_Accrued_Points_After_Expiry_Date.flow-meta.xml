@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>Auto expire accrued point ledger records.</description>
+    <environments>Default</environments>
+    <interviewLabel>Expire Accrued Points After Expiry Date {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Expire Accrued Points After Expiry Date</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Set the Is_Expired__c field value to true.</description>
+        <name>Update_Is_Expired_Field_To_True</name>
+        <label>Update Is Expired Field To True</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Transaction_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Accrual</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Is_Expired__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <object>Point_Ledger__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <name>Expire_Points_After_Expiry_Date</name>
+            <connector>
+                <targetReference>Update_Is_Expired_Field_To_True</targetReference>
+            </connector>
+            <label>Expire Points After Expiry Date</label>
+            <offsetNumber>6</offsetNumber>
+            <offsetUnit>Months</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

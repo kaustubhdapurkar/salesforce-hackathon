@@ -153,7 +153,7 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>Read</externalSharingModel>
     <label>Voucher/Deal</label>
     <nameField>
         <displayFormat>VD-{0000}</displayFormat>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Accrual_Points_For_Referral</fullName>
+        <categories>Reward Point Calculation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Accrual Points For Referral</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>Accrual_Points_For_Review</fullName>
+        <categories>Reward Point Calculation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Accrual Points For Review</shortDescription>
+        <value>5</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Loyalty_Program_Permission_Set_Group_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Loyalty Program Permission Set Group Name</shortDescription>
+        <value>Customer_Loyalty_Program_Permissions</value>
+    </labels>
+    <labels>
+        <fullName>Order_Reward_Points_Credit_Email_Template</fullName>
+        <categories>Email Template Name</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Reward Points Credit Email Template</shortDescription>
+        <value>Order Reward Points Credit Email Template</value>
+    </labels>
+    <labels>
+        <fullName>Point_Expiration_Duration_In_Months</fullName>
+        <categories>Reward Point Calculation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Point Expiration Duration In Months</shortDescription>
+        <value>6</value>
+    </labels>
+    <labels>
+        <fullName>Points_Accrual_Factor</fullName>
+        <categories>Reward Point Calculation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Points Accrual Factor</shortDescription>
+        <value>0.1</value>
+    </labels>
+    <labels>
+        <fullName>Review_Submitted_Email_Template</fullName>
+        <categories>Email Template Name</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Review Submitted Email Template</shortDescription>
+        <value>Review Submitted Email Template</value>
+    </labels>
+    <labels>
+        <fullName>Successful_Referral_Email_Template</fullName>
+        <categories>Email Template Name</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successful Referral Email Template</shortDescription>
+        <value>Successful Referral Email Template</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,14 @@
+.leaderboard-container {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+}
+
+.leaderboard-title {
+    background-color: #d0d0d0;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #333333;
+}

@@ -1,0 +1,9 @@
+<template>
+
+    <div class="leaderboard-container">
+        <div class="leaderboard-title">Top 5 Shoppers By Points</div>
+        <template for:each={leaderboard} for:item="item">
+            <c-leaderboard-item key={item.rank} item={item}></c-leaderboard-item>
+        </template>
+    </div>
+</template>

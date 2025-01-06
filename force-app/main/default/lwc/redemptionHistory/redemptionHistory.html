@@ -1,0 +1,18 @@
+<template>
+    <template for:each={redemptionHistory} for:item="redemption">
+        <div key={redemption.Id} class="slds-grid slds-grid_vertical slds-gutters">
+            <div class="slds-col slds-p-top_xxx-small slds-p-bottom_xxx-small">
+                <lightning-card>
+                    <div class="slds-grid slds-gutters slds-p-left_small slds-p-right_small">
+                        <div class="slds-col slds-size_1-of-12 slds-align_absolute-center">
+                            <lightning-icon icon-name="standard:product_transfer_state" size="small"></lightning-icon>
+                        </div>
+                        <div class="slds-col">
+                            {redemption.Total_Points__c} points redeemed on {redemption.FormattedCreatedDate}
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </template>
+</template>

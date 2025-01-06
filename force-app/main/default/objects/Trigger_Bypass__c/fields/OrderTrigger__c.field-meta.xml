@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OrderTrigger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to control execution of order trigger.</description>
+    <label>OrderTrigger</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Was_Referral_Popup_Displayed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>To show Referral Pop Up only once when user logs in to the portal</description>
+    <label>Was Referral Popup Displayed</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

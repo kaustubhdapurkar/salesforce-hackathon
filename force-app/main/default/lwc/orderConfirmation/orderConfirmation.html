@@ -1,0 +1,19 @@
+<template>
+    <div class="confirmation-container">
+        <div class="confirmation-card">
+            <div class="confirmation-header">
+                <lightning-icon icon-name="utility:success" size="large" alternative-text="Order Success"></lightning-icon>
+                <h1 class="confirmation-title">Thank You for Your Order!</h1>
+            </div>
+            <div class="confirmation-body">
+                <p>Your order has been successfully placed.</p>
+                <p><strong>Order ID:</strong> {orderId}</p>
+                <p>We’ve sent a confirmation email with your order details.</p>
+            </div>
+            <div class="confirmation-footer">
+                <lightning-button label="Back to Home" variant="neutral" onclick={navigateToHome}></lightning-button>
+                <lightning-button label="View My Orders" variant="brand" onclick={navigateToOrders}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>
