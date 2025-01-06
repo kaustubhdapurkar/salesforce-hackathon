@@ -131,7 +131,6 @@
     <types>
         <members>Apex_Class_Access_for_Customer_Loyalty_Program</members>
         <members>Customer_Loyalty_Program_Object_Access</members>
-        <members>Experience_Profile_Manager</members>
         <members>Loyalty_Profile_Permission_Set</members>
         <members>Product2_Access</members>
         <name>PermissionSet</name>
@@ -169,10 +168,6 @@
     <types>
         <members>Account.Customer_Loyalty_Program_Account_Sharing_Rule</members>
         <name>SharingGuestRule</name>
-    </types>
-    <types>
-        <members>Account</members>
-        <name>SharingRules</name>
     </types>
     <types>
         <members>Customer_Loyalty_Portal1</members>
