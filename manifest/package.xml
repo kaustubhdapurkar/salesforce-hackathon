@@ -1,40 +1,190 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
+        <members>CheckoutController</members>
+        <members>ContactTriggerHandler</members>
+        <members>EmailTemplateSelector</members>
+        <members>InsertLoyaltyProfilesBatch</members>
+        <members>InsertLoyaltyProfilesQueueable</members>
+        <members>LoyaltyProfileSelector</members>
+        <members>OrderTriggerHandler</members>
+        <members>PointLedgerSelector</members>
+        <members>PointLedgerTriggerHandler</members>
+        <members>ProductController</members>
+        <members>ReferralController</members>
+        <members>RewardPointsService</members>
+        <members>UserSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>ContactTrigger</members>
+        <members>OrderTrigger</members>
+        <members>PointLedgerTrigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
+        <members>Customer_Review__c.Description__c</members>
+        <members>Customer_Review__c.Loyalty_Profile__c</members>
+        <members>Customer_Review__c.Product__c</members>
+        <members>Customer_Review__c.Review_Title__c</members>
+        <members>Loyalty_Profile__c.Available_Points__c</members>
+        <members>Loyalty_Profile__c.Contact__c</members>
+        <members>Loyalty_Profile__c.Referral_Code__c</members>
+        <members>Loyalty_Profile__c.Reward_Points_Expiry_Date__c</members>
+        <members>Loyalty_Profile__c.Total_Points_Accrued__c</members>
+        <members>Loyalty_Profile__c.Total_Points_Redeemed__c</members>
+        <members>Loyalty_Profile__c.Was_Referral_Popup_Displayed__c</members>
+        <members>Offer__c.Active__c</members>
+        <members>Offer__c.Discount__c</members>
+        <members>Order.Loyalty_Profile__c</members>
+        <members>Order.Points_Accrued__c</members>
+        <members>Order.Points_Redeemed__c</members>
+        <members>Order.Voucher__c</members>
+        <members>Point_Ledger__c.Expiry_Date__c</members>
+        <members>Point_Ledger__c.Is_Expired__c</members>
+        <members>Point_Ledger__c.Loyalty_Profile__c</members>
+        <members>Point_Ledger__c.Source__c</members>
+        <members>Point_Ledger__c.Total_Points__c</members>
+        <members>Point_Ledger__c.Transaction_Type__c</members>
+        <members>Product2.Offer__c</members>
+        <members>Referral__c.Referee__c</members>
+        <members>Referral__c.Referrer__c</members>
+        <members>Trigger_Bypass__c.ContactTrigger__c</members>
+        <members>Trigger_Bypass__c.OrderTrigger__c</members>
+        <members>Trigger_Bypass__c.PointLedgerTrigger__c</members>
+        <members>Voucher__c.Active__c</members>
+        <members>Voucher__c.Code__c</members>
+        <members>Voucher__c.Discount_Type__c</members>
+        <members>Voucher__c.Discount__c</members>
+        <name>CustomField</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Accrual_Points_For_Referral</members>
+        <members>Accrual_Points_For_Review</members>
+        <members>Customer_Loyalty_Program_Permission_Set_Group_Name</members>
+        <members>Order_Reward_Points_Credit_Email_Template</members>
+        <members>Point_Expiration_Duration_In_Months</members>
+        <members>Points_Accrual_Factor</members>
+        <members>Review_Submitted_Email_Template</members>
+        <members>Successful_Referral_Email_Template</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>Order</members>
+        <members>Product2</members>
+        <members>Customer_Review__c</members>
+        <members>Loyalty_Profile__c</members>
+        <members>Offer__c</members>
+        <members>Voucher__c</members>
+        <members>Referral__c</members>
+        <members>Point_Ledger__c</members>
+        <members>Trigger_Bypass__c</members>
+        <members>Contact</members>
+        <members>User</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>CustomerLoyaltyProgramDashboards/</members>
+        <members>CustomerLoyaltyProgramDashboards/TemHneKbKvNpTDjyPtiSEUMpiUHMqh</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>Customer_Loyalty_Program_Admin_App_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Addition_of_Referral_Points</members>
+        <members>Create_Point_Ledger_Record_When_A_Review_Is_Created</members>
+        <members>Expire_Accrued_Points_After_Expiry_Date</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Addition_of_Referral_Points</members>
+        <members>Create_Point_Ledger_Record_When_A_Review_Is_Created</members>
+        <members>Expire_Accrued_Points_After_Expiry_Date</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>categoryContainer</members>
+        <members>checkoutPage</members>
+        <members>leaderboard</members>
+        <members>leaderboardItem</members>
+        <members>myPoints</members>
+        <members>orderConfirmation</members>
+        <members>pointLedgerEventSubscriber</members>
+        <members>productCatalog</members>
+        <members>productList</members>
+        <members>productNavigation</members>
+        <members>redemptionHistory</members>
+        <members>referralPopup</members>
+        <members>userDashboard</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>*</members>
-        <name>StaticResource</name>
+        <members>Default_User_Profile_Menu</members>
+        <members>SFDC_Default_Navigation_Customer_Loyalty_Portal</members>
+        <name>NavigationMenu</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomObject</name>
+        <members>Apex_Class_Access_for_Customer_Loyalty_Program</members>
+        <members>Customer_Loyalty_Program_Object_Access</members>
+        <members>Experience_Profile_Manager</members>
+        <members>Loyalty_Profile_Permission_Set</members>
+        <members>Product2_Access</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Customer_Loyalty_Program_Permissions</members>
+        <name>PermissionSetGroup</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Customer Loyalty Program User</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Customer_Loyalty_Program_User_profilePasswordPolicy1736075818928</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members>Customer_Loyalty_Program_User_profileSessionSetting1736075819036</members>
+        <name>ProfileSessionSetting</name>
+    </types>
+    <types>
+        <members>CustomerLoyaltyProgramReports/</members>
+        <members>CustomerLoyaltyProgramReports/Loyalty_Profiles_with_Points_ren</members>
+        <members>CustomerLoyaltyProgramReports/Point_Ledger_Report</members>
+        <members>unfiled$public/</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Loyalty_Profiles_With_Points</members>
+        <members>Point_Ledger_Report</members>
+        <name>ReportType</name>
+    </types>
+
+    <types>
+        <members>Account.Customer_Loyalty_Program_Account_Sharing_Rule</members>
+        <name>SharingGuestRule</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <name>SharingRules</name>
+    </types>
+    <types>
+        <members>Customer_Loyalty_Portal1</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>AnalogWatchImage</members>
+        <members>DigitalWatchImage</members>
+        <members>SiteSamples</members>
+        <members>TitanAnalog2</members>
+        <name>StaticResource</name>
     </types>
     <version>62.0</version>
 </Package>
