@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission sets for customer loyalty program experience users.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Customer Loyalty Program Permissions</label>
+    <permissionSets>Apex_Class_Access_for_Customer_Loyalty_Program</permissionSets>
+    <permissionSets>Customer_Loyalty_Program_Object_Access</permissionSets>
+    <permissionSets>Product2_Access</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

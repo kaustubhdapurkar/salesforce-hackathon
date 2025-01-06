@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CheckoutController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReferralController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RewardPointsService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Grants access to all required apex classes.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Apex Class Access for Customer Loyalty Program</label>
+</PermissionSet>
