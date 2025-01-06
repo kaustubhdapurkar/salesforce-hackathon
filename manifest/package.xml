@@ -125,7 +125,6 @@
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>Default_User_Profile_Menu</members>
         <members>SFDC_Default_Navigation_Customer_Loyalty_Portal</members>
         <name>NavigationMenu</name>
     </types>
