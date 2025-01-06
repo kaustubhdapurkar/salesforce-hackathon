@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Customer_Loyalty_Program_Account_Sharing_Rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share the community account with community users.</description>
+        <label>Customer Loyalty Program Account Sharing Rule</label>
+        <sharedTo>
+            <guestUser>Customer_Loyalty_Portal</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>equals</operation>
+            <value>Customer Loyalty Program Account</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>
