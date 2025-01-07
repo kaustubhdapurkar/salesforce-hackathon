@@ -70,8 +70,7 @@ public static Id createOrder(Map<String, Object> orderData) {
         BillingStreet = (String)orderData.get('deliveryAddress'),
         Pricebook2Id = pricebookEntries[0].Pricebook2Id, // Associate the Pricebook
         Loyalty_Profile__c = profile.Id,
-        Voucher__c = !voucherList.isEmpty() ? voucherList[0].Id : null,
-        Points_Redeemed__c = Decimal.valueOf(String.valueOf(orderData.get('redeemedPoints') ?? '0'))
+        Voucher__c = !voucherList.isEmpty() ? voucherList[0].Id : null
     );
     insert order;
 
@@ -86,18 +85,41 @@ public static Id createOrder(Map<String, Object> orderData) {
     );
     insert item;
 
-    /* Decimal redeemedPoints = Decimal.valueOf(String.valueOf(orderData.get('redeemedPoints')));
+    List<Point_Ledger__c> ledgerList = new List<Point_Ledger__c>();
+    Decimal redeemedPoints = 0;
+    if(orderData.get('redeemedPoints') != null) {
+        redeemedPoints = Decimal.valueOf((String)orderData.get('redeemedPoints'));
+    }
+    Decimal price = (Decimal)orderData.get('price');
     if (redeemedPoints > 0) {
+        /*
         Loyalty_Profile__c profile = [
             SELECT Available_Points__c FROM Loyalty_Profile__c WHERE OwnerId = :UserInfo.getUserId() LIMIT 1
         ];
-        Point_Ledger__c ledger = new Point_Ledger__c(
+        */
+        Point_Ledger__c redemptionLedger = new Point_Ledger__c(
             Loyalty_Profile__c = profile.Id,
             Total_Points__c = redeemedPoints,//(Decimal)orderData.get('redeemedPoints'),
-            Transaction_Type__c = 'Redemption'
+            Transaction_Type__c = 'Redemption',
+            Source__c = 'Order'
         );
-        insert ledger;
-    } */
+        ledgerList.add(redemptionLedger);
+        //insert ledger;
+    } 
+
+    Decimal accrualFactor = Decimal.valueOf(System.Label.Points_Accrual_Factor);
+
+    Point_Ledger__c accrualLedger = new Point_Ledger__c(
+            Loyalty_Profile__c = profile.Id,
+            Total_Points__c = Integer.valueOf(price*accrualFactor),//(Decimal)orderData.get('redeemedPoints'),
+            Transaction_Type__c = 'Accrual',
+            Source__c = 'Order'
+        );
+        ledgerList.add(accrualLedger);
+
+    if (ledgerList.size() > 0) {
+        insert ledgerList;
+    }
 
     return order.Id;
 }

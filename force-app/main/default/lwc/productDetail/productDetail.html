@@ -1,0 +1,27 @@
+<template>
+    <div class="product-detail-cotainer">
+        <div class="product-info">
+            <img src={product.DisplayUrl} alt={product.Name} class="product-image" />
+            <div class="product-details">
+                <h2>{product.Name}</h2>
+                <p>{product.Description}</p>
+                <p><strong>Price:</strong> ${finalPrice}</p>
+            </div>
+        </div>
+    </div>
+    <div class="reviews-header">
+        Customer Reviews (Only by verified buyers)
+    </div>
+    <c-product-review product-id={product.Id}></c-product-review>
+    <template lwc:if={canTheUserSubmitReview}>
+        Submit a review
+        <lightning-input label="Title" type="text" max-length="50" data-field="title"
+            onchange={handleReviewChange}></lightning-input>
+        <lightning-input label="Description" type="text" max-length="32768" data-field="description"
+            onchange={handleReviewChange}></lightning-input>
+        <lightning-button label="Submit" onclick={submitReview}></lightning-button>
+        <template lwc:if={reviewSubmissionError}>
+            <div class="review-error">Please provide a valid review title and description</div>
+        </template>
+    </template>
+</template>

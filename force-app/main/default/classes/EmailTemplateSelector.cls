@@ -7,7 +7,7 @@ public inherited sharing class EmailTemplateSelector {
             FROM
                 EmailTemplate
             WHERE
-            Name IN :emailTemplateNames
+                Name IN :emailTemplateNames
         ];
     }
 }

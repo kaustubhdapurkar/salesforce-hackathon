@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Create Loyalty Profile And Assign Permission To Community User {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Loyalty Profile And Assign Permission To Community User</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Copy_1_of_Create_Loyalty_Profile</name>
+        <label>Copy 1 of Create Loyalty Profile</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Contact__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Loyalty_Profile__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Create_Loyalty_Profile</targetReference>
+        </connector>
+        <object>Contact</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

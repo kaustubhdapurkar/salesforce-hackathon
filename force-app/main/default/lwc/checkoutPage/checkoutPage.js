@@ -83,15 +83,16 @@ export default class CheckoutPage extends LightningElement {
 
     createOrder() {
         console.log('his.pointsToRedeem--->'+this.pointsToRedeem);
-        const orderData = {
+        let orderData = {
             productId: this.product.Id,
             price: this.finalPrice,
             deliveryAddress: this.deliveryAddress,
-            redeemedPoints: this.pointsToRedeem,
             voucherCode: this.voucherCode,
             totalDiscount: this.discountFromVoucher + this.discountFromPoints,
         };
-
+        if (this.pointsToRedeem) {
+            orderData.redeemedPoints = this.pointsToRedeem;
+        }
         createOrderRecord({ orderData })
             .then((orderId) => {
                 window.location.href = `/s/orderconfirmation?orderId=${orderId}`;

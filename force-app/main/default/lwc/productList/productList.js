@@ -27,4 +27,11 @@ export default class ProductList extends LightningElement {
         // Redirect to the checkout page with the productId in the URL parameter
         window.location.href = `/s/checkout?productId=${productId}`;
     }
+
+    handleDetails(event) {
+        const productId = event.target.dataset.id;
+        console.log('Redirecting to product:', productId);
+        // Redirect to the checkout page with the productId in the URL parameter
+        window.location.href = `/s/product-detail?productId=${productId}`;
+    }
 }

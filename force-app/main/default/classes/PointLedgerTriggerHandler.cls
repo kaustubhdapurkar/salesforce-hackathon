@@ -30,6 +30,8 @@ public without sharing class PointLedgerTriggerHandler {
             loyaltyProfiles = LoyaltyProfileSelector.getLoyaltyProfilesByIds(loyaltyProfileIds);
         } catch(QueryException e) {
             System.debug('Error: ' + e.getMessage());
+            // Use logger mechanism to log these errors - Nebula Logger, etc.
+            // Didn't implement because of time constraints.
         }
 
 
@@ -43,6 +45,8 @@ public without sharing class PointLedgerTriggerHandler {
             }
         } catch(DmlException e) {
             System.debug('Error: ' + e.getMessage());
+            // Use logger mechanism to log these errors - Nebula Logger, etc.
+            // Didn't implement because of time constraints.
         }
     }
 
@@ -82,6 +86,8 @@ public without sharing class PointLedgerTriggerHandler {
             }
         } catch (EmailException e) {
             System.debug('Error: ' + e.getMessage());
+            // Use logger mechanism to log these errors - Nebula Logger, etc.
+            // Didn't implement because of time constraints.
         }
     }
 }

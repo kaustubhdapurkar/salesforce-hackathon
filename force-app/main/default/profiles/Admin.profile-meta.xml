@@ -5,10 +5,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ContactTriggerHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>EmailTemplateSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22,10 +18,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LoyaltyProfileSelector</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>OrderTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -461,6 +453,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Addition_of_Referral_Points</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Create_Loyalty_Profile_And_Assign_Permission_To_Community_User</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>

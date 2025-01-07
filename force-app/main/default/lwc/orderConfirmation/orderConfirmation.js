@@ -17,6 +17,6 @@ export default class OrderConfirmation extends LightningElement {
 
     navigateToOrders() {
         // Redirect to the orders page
-        window.location.href = '/s/my-orders';
+        window.location.href = '/s/myorders';
     }
 }

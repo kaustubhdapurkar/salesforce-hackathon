@@ -152,7 +152,7 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>Read</externalSharingModel>
     <label>Customer Review</label>
     <nameField>
         <displayFormat>CR-{0000}</displayFormat>

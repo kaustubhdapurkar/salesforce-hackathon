@@ -8,7 +8,8 @@ public inherited sharing class LoyaltyProfileSelector {
             Name,
             Contact__c,
             Available_Points__c,
-            Reward_Points_Expiry_Date__c
+            Reward_Points_Expiry_Date__c,
+            Was_Referral_Popup_Displayed__c
          FROM
             Loyalty_Profile__c
          WHERE
@@ -49,4 +50,20 @@ public inherited sharing class LoyaltyProfileSelector {
          LIMIT :recordLimit
      ];
    }
+
+   public static Loyalty_Profile__c getLoyaltyProfileByReferralCode(
+     String referralCode
+   ) {
+     return [
+      SELECT 
+         Id, 
+         Referral_Code__c 
+      FROM 
+         Loyalty_Profile__c 
+      WHERE 
+         Referral_Code__c = :referralCode
+      LIMIT 1
+     ];
+   }
+
  }

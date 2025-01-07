@@ -3,45 +3,36 @@ public with sharing class ReferralController {
     public static void validateReferralCode(String code , String userId) {
         try {
             // Fetch the Loyalty Profile for the entered referral code
-            List<Loyalty_Profile__c> loyaltyProfiles = [
-                SELECT Id, Referral_Code__c 
-                FROM Loyalty_Profile__c 
-                WHERE Referral_Code__c = :code
-                LIMIT 1
-            ];
-    
+            Loyalty_Profile__c loyaltyProfiles = LoyaltyProfileSelector.getLoyaltyProfileByReferralCode(code);
+			
             // Check if the referral code exists
-            if (!loyaltyProfiles.isEmpty()) {
-                Loyalty_Profile__c referrer = loyaltyProfiles[0]; // Get the matching loyalty profile
-    
+            if (loyaltyProfiles != null) {
+                Loyalty_Profile__c referrer = loyaltyProfiles; // Get the matching loyalty profile
+    			
                 // Fetch the current user's Loyalty Profile
-                User currentUser = [
-                    SELECT Id, ContactId 
-                    FROM User 
-                    WHERE Id = :userId
-                    LIMIT 1
-                ];
-    
-                Loyalty_Profile__c currentUserProfile = [
-                    SELECT Id 
-                    FROM Loyalty_Profile__c 
-                    WHERE Contact__c = :currentUser.ContactId
-                    LIMIT 1
-                ];
+                User currentUser = UserSelector.getUserById(userId);
+        		System.debug('Here2!');
+                Loyalty_Profile__c currentUserProfile = LoyaltyProfileSelector.getLoyaltyProfileByContactId(currentUser.ContactId);
     
                 // Create a Referral record
                 Referral__c referral = new Referral__c(
                     Referrer__c = referrer.Id, // The user who owns the referral code
                     Referee__c = currentUserProfile.Id // The user who entered the referral code
-                    //Referral_Code__c = code
                 );
-                insert referral;
+                Database.insert(referral);
                 updatePopupDisplayedFlag(userId);            
             } else {
                 throw new AuraHandledException('Invalid referral code. Please try again.');
             }
-        } catch (Exception ex) {
-            throw new AuraHandledException('Error processing referral code: ' + ex.getMessage());
+        } //catch (Exception ex) {
+        //     throw new AuraHandledException('Error processing referral code: ' + ex.getMessage());
+        //     //Use Logger mechanism to log the error
+        // }
+        catch (NullPointerException np) {
+            throw new AuraHandledException('Error processing referral code: ' + np.getMessage());
+        }
+        catch (DmlException  dm) {
+            throw new AuraHandledException('Error processing referral code: ' + dm.getMessage());
         }
         
     }
@@ -49,20 +40,9 @@ public with sharing class ReferralController {
     @AuraEnabled
     public static void updatePopupDisplayedFlag(String userId) {
         try {
-            User currentUser = [
-                SELECT Id, contactId 
-                FROM User 
-                WHERE Id = :userId 
-                LIMIT 1
-            ];
-            // Query the Customer Loyalty Profile for the current user
+            User currentUser = UserSelector.getUserById(userId);
 
-            Loyalty_Profile__c loyaltyProfile = [
-                SELECT Id, Was_Referral_Popup_Displayed__c 
-                FROM Loyalty_Profile__c 
-                WHERE Contact__c = :currentUser.contactId
-                LIMIT 1
-            ];
+            Loyalty_Profile__c loyaltyProfile = LoyaltyProfileSelector.getLoyaltyProfileByContactId(currentUser.ContactId);
             
             // Update the was_popup_displayed field to true
             loyaltyProfile.Was_Referral_Popup_Displayed__c = true;
@@ -71,30 +51,22 @@ public with sharing class ReferralController {
             update loyaltyProfile; 
         } catch (Exception ex) {
             throw new AuraHandledException('Error updating the popup displayed flag: ' + ex.getMessage());
+            //Use Logger mechanism to log the error
         }
     }
 
     @AuraEnabled
     public static Loyalty_Profile__c getLoyaltyProfile(String userId) {
         try {
-            User currentUser = [
-                SELECT Id, ContactId 
-                FROM User 
-                WHERE Id = :userId 
-                LIMIT 1
-            ];
+            User currentUser = UserSelector.getUserById(userId);
 
             // Query the Customer Loyalty Profile for the current user
-            Loyalty_Profile__c loyaltyProfile = [
-                SELECT Id, Was_Referral_Popup_Displayed__c 
-                FROM Loyalty_Profile__c 
-                WHERE Contact__c = :currentUser.ContactId 
-                LIMIT 1
-            ];
+            Loyalty_Profile__c loyaltyProfile = LoyaltyProfileSelector.getLoyaltyProfileByContactId(currentUser.ContactId);
 
             return loyaltyProfile;
         } catch (Exception ex) {
             throw new AuraHandledException('Error fetching loyalty profile: ' + ex.getMessage());
+            //Use Logger mechanism to log the error
         }
     }
 }

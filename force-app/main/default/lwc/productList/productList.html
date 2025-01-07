@@ -11,11 +11,18 @@
                             <p><strong>Price:</strong> {product.price}</p>
                             <p class="product-description"><strong>Description:</strong> {product.Description}</p>
                         </div>
-                        <div class="slds-p-around_medium">
+                        <div class="slds-grid slds-grid_align-spread slds-p-around_medium">
                             <lightning-button
+                                class="slds-col"
                                 label="Buy Now"
                                 variant="brand"
                                 onclick={handleBuyNow}
+                                data-id={product.Id}>
+                            </lightning-button>
+                            <lightning-button
+                                class="slds-col"
+                                label="Details"
+                                onclick={handleDetails}
                                 data-id={product.Id}>
                             </lightning-button>
                         </div>

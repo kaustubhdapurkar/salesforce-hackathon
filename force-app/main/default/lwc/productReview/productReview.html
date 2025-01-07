@@ -1,0 +1,19 @@
+<template>
+    <template lwc:if={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+    <template lwc:if={reviews}>
+        <template for:each={reviews} for:item="review">
+            <lightning-card class="slds-p-around_small" key={review.Id}>
+                <div class="slds-p-around_small">
+                    <div class="slds-p-around_xxx-small review-title">{review.title}</div>
+                    <div class="slds-p-around_xxx-small review-reviwer">{review.reviewer}</div>
+                    <div class="slds-p-around_xxx-small review-description">{review.description}</div>
+                </div>
+            </lightning-card>
+        </template>
+    </template>
+    <template lwc:else>
+        <div>No reviews yet</div>
+    </template>
+</template>

@@ -1,4 +1,13 @@
-public class InsertLoyaltyProfilesQueueable implements Queueable {
+/*
+ * Asynchronous logic to create Loyalty Profile records for new community contacts. 
+ * Reason for keeping this asynchronous code is because when a new communmity contact is created,
+ * we are assigning permission set group to the user in the same transaction. Creating Loyalty Profile
+ * record in the same transaction will result in mixed DML error.
+ * When user logs in for the first time and the their Loyalty Profile is not yet created, show user a
+ * screen on the community to ask them to come back in some time while we are processing their registration.
+ * As soon as their Loyalty Profile is created, we can send them an email notification.
+ */
+public without sharing class InsertLoyaltyProfilesQueueable implements Queueable {
     private List<Contact> contacts;
 
     public InsertLoyaltyProfilesQueueable(List<Contact> contacts) {
@@ -11,7 +20,7 @@ public class InsertLoyaltyProfilesQueueable implements Queueable {
         for (Contact contact : contacts) {
             Loyalty_Profile__c loyaltyProfile = new Loyalty_Profile__c();
             loyaltyProfile.Contact__c = contact.Id;
-            loyaltyProfile.Referral_Code__c = generateReferralCode(); // Generate random unique referral code
+            loyaltyProfile.Referral_Code__c = CustomerLoyaltyProgramUtil.generateReferralCode();
             loyaltyProfiles.add(loyaltyProfile);
         }
 
@@ -20,23 +29,9 @@ public class InsertLoyaltyProfilesQueueable implements Queueable {
                 Database.insert(loyaltyProfiles);
             } catch (Exception e) {
                 System.debug('Error inserting Loyalty Profiles: ' + e.getMessage());
+                // Use logger mechanism to log these errors - Nebula Logger, etc.
+                // Didn't implement because of time constraints.
             }
         }
-    }
-
-    /**
-     * Generates a random unique 8-character alphanumeric referral code.
-     *
-     * @return A random unique 8-character alphanumeric string.
-     */
-    private String generateReferralCode() {
-        String chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        String referralCode = '';
-        Integer length = 8;
-        for (Integer i = 0; i < length; i++) {
-            Integer idx = Math.mod(Math.abs(Crypto.getRandomInteger()), chars.length());
-            referralCode += chars.substring(idx, idx + 1);
-        }
-        return referralCode;
     }
 }

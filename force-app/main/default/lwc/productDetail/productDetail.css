@@ -1,0 +1,24 @@
+.product-info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.reviews-header {
+    font-size: larger;
+    font-style: bold;
+}
+
+.review-error {
+    color: red;
+}

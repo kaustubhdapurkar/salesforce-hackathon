@@ -2,15 +2,11 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
         <apexClass>CheckoutController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ContactTriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>EmailTemplateSelector</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>InsertLoyaltyProfilesBatch</apexClass>
@@ -22,35 +18,31 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LoyaltyProfileSelector</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>OrderTriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PointLedgerSelector</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PointLedgerTriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ProductController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ReferralController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RewardPointsService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UserSelector</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
@@ -184,24 +176,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Customer_Review__c.Description__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Customer_Review__c.Loyalty_Profile__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Customer_Review__c.Product__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Customer_Review__c.Review_Title__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -464,6 +456,10 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Create_Loyalty_Profile_And_Assign_Permission_To_Community_User</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Create_Point_Ledger_Record_When_A_Review_Is_Created</flow>
     </flowAccesses>
     <flowAccesses>
@@ -478,6 +474,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Customer_Review__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>

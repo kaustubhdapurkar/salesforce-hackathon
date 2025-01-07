@@ -2,12 +2,10 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>CheckoutController</members>
-        <members>ContactTriggerHandler</members>
         <members>EmailTemplateSelector</members>
         <members>InsertLoyaltyProfilesBatch</members>
         <members>InsertLoyaltyProfilesQueueable</members>
         <members>LoyaltyProfileSelector</members>
-        <members>OrderTriggerHandler</members>
         <members>PointLedgerSelector</members>
         <members>PointLedgerTriggerHandler</members>
         <members>ProductController</members>
@@ -17,8 +15,6 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>ContactTrigger</members>
-        <members>OrderTrigger</members>
         <members>PointLedgerTrigger</members>
         <name>ApexTrigger</name>
     </types>
@@ -99,6 +95,7 @@
     <types>
         <members>Addition_of_Referral_Points</members>
         <members>Create_Point_Ledger_Record_When_A_Review_Is_Created</members>
+        <members>Create_Loyalty_Profile_And_Assign_Permission_To_Community_User</members>
         <members>Expire_Accrued_Points_After_Expiry_Date</members>
         <name>Flow</name>
     </types>
@@ -106,6 +103,7 @@
         <members>Addition_of_Referral_Points</members>
         <members>Create_Point_Ledger_Record_When_A_Review_Is_Created</members>
         <members>Expire_Accrued_Points_After_Expiry_Date</members>
+        <members>Create_Loyalty_Profile_And_Assign_Permission_To_Community_User</members>
         <name>FlowDefinition</name>
     </types>
     <types>

@@ -24,6 +24,13 @@
         <value>Customer_Loyalty_Program_Permissions</value>
     </labels>
     <labels>
+        <fullName>Customer_Loyalty_Program_User_Profile_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Loyalty Program User Profile Name</shortDescription>
+        <value>Customer Loyalty Program User</value>
+    </labels>
+    <labels>
         <fullName>Order_Reward_Points_Credit_Email_Template</fullName>
         <categories>Email Template Name</categories>
         <language>en_US</language>
